@@ -1,0 +1,28 @@
+{
+	"name": "twt-api",
+	"version": "1.0.0",
+	"description": "Simple Node.js wrapper for Twitter API",
+	"main": "src/twitter",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/znmn/twt-api.git"
+	},
+	"keywords": [
+		"Twitter",
+		"API",
+		"API Wrapper",
+		"Twitter API Wrapper"
+	],
+	"author": "Zainul Muhaimin",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/znmn/twt-api/issues"
+	},
+	"homepage": "https://github.com/znmn/twt-api#readme",
+	"dependencies": {
+		"twitter-api-v2": "^1.12.3"
+	}
+}
