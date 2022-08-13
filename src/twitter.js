@@ -77,7 +77,7 @@ class TwitterApi {
 		try {
 			let tweetId;
 
-			if (tweet.indexOf("/") !== -1 && isNaN(tweet)) tweetId = tweet.slice(tweet.lastIndexOf("/") + 1);
+			if (tweet.indexOf("/") !== -1 && isNaN(tweet)) tweetId = tweet.slice(tweet.lastIndexOf("/") + 1).split("?")[0];
 			else tweetId = tweet;
 
 			let res = await this.#twitter.v1.post(`statuses/retweet/${tweetId}.json`, { id: tweetId });
