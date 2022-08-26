@@ -100,6 +100,25 @@ class TwitterApi {
 			throw err;
 		}
 	}
+
+	async tweetImages(text, images = []) {
+		if (typeof text !== "string" || !Array.isArray(images)) throw new TwitterApiError("BAD DATA Type Parameters");
+		if (images.length === 0 || images.length > 4) throw new TwitterApiError("Images length must be between 1 and 4");
+
+		let mediaIds = [];
+
+		try {
+			for (const image of images) {
+				const mediaId = await this.#twitter.v1.uploadMedia(image);
+				mediaIds.push(mediaId);
+			}
+			let res = await this.#twitter.v1.tweetThread([{ status: text, media_ids: mediaIds }]);
+
+			return res;
+		} catch (err) {
+			throw err;
+		}
+	}
 }
 
 module.exports = TwitterApi;
